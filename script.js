@@ -4,17 +4,17 @@ let roundWon = false;
 let currentPlayer = "X";
 finalMessage.innerHTML = `It's ${currentPlayer}'s turn`;
 
-function PressFnc(id) {
+function PressBox(id) {
    if (document.getElementById(id).innerHTML === "" && gameActive === true) {
       document.getElementById(id).innerHTML = currentPlayer;
       gameMoves[id] = currentPlayer;
-      checkWhoWin();
+      checkWin();
       PlayerChange();
-      finalMes();
+      finalText();
    }
 }
 
-function checkWhoWin() {
+function checkWin() {
    const winningConditions = [
       [0, 1, 2],
       [3, 4, 5],
@@ -45,7 +45,7 @@ function PlayerChange() {
    }
 }
 
-function finalMes() {
+function finalText() {
    if (roundWon) {
       finalMessage.innerHTML = `Player "${currentPlayer}" has won!`;
    } else if (!gameMoves.includes("")) {
